@@ -30,7 +30,7 @@ const Navbar = () => {
 
         </ul>
 
-        {/* Right Side */}
+        {/* Right Side Buttons */}
         <div className="flex items-center gap-4">
 
           {/* Login */}
