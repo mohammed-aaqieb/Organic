@@ -1,8 +1,8 @@
-import banana from "../assets/fruits/banana.jpg";
+import banana from "../assets/fruits/Banana.jpg";
 import pineapple from "../assets/fruits/pineapple2.jpg";
 import avocado from "../assets/fruits/Avocadoo.jpg";
 import dragon from "../assets/fruits/dragon.jpg";
-// import kiwi from "../assets/fruits/Kiwi.jpg";
+
 import mango from "../assets/fruits/mango.jpg";
 import orange from "../assets/fruits/Orange.jpg";
 import papaya from "../assets/fruits/papaya.jpg";
@@ -10,7 +10,7 @@ import pomegranate from "../assets/fruits/pomegranate.jpg";
 import strawberry from "../assets/fruits/Strawberry.jpg";
 import watermelon from "../assets/fruits/Watermelon.jpg";
 
-import tomato from "../assets/vegetables/tomato.jpg";
+import tomato from "../assets/vegetables/Tomato.jpg";
 import carrot from "../assets/vegetables/carrot.jpg";
 import bellpapper from "../assets/vegetables/Bell Papper.jpg";
 import broccoli from "../assets/vegetables/broccoli.jpg";
