@@ -1,217 +1,336 @@
 import { useState } from "react";
 
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 
-import { FaPlus, FaMinus } from "react-icons/fa";
+import {
+  FaPlus,
+  FaMinus,
+} from "react-icons/fa";
 
 const faqData = [
   {
     id: 1,
-    question: "Are your fruits and vegetables completely organic?",
+    question:
+      "Are your fruits and vegetables completely organic?",
+
     answer:
       "Yes. All our products are sourced from trusted organic farms without harmful chemicals or pesticides.",
   },
 
   {
     id: 2,
-    question: "How long does delivery usually take?",
+    question:
+      "How long does delivery usually take?",
+
     answer:
       "Most orders are delivered within 24 to 48 hours depending on your location.",
   },
 
   {
     id: 3,
-    question: "Do you offer fresh farm delivery daily?",
+    question:
+      "Do you offer fresh farm delivery daily?",
+
     answer:
       "Yes. We work directly with farms to ensure fresh daily organic deliveries.",
   },
 
   {
     id: 4,
-    question: "Can I return damaged products?",
+    question:
+      "Can I return damaged products?",
+
     answer:
       "Absolutely. If any product arrives damaged, we provide replacement or refund support.",
   },
 
   {
     id: 5,
-    question: "Do you use preservatives in your foods?",
+    question:
+      "Do you use preservatives in your foods?",
+
     answer:
       "No. Our organic foods are completely natural and free from artificial preservatives.",
   },
 ];
 
 const FAQ = () => {
-  const [active, setActive] = useState(null);
+
+  const [active, setActive] =
+    useState(1);
 
   const toggleFAQ = (id) => {
-    setActive(active === id ? null : id);
+
+    setActive(
+      active === id
+        ? null
+        : id
+    );
   };
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative overflow-hidden py-16 md:py-20">
 
-      {/* Background Glow */}
-      <motion.div
-        animate={{
-          y: [0, -40, 0],
-          x: [0, 30, 0],
-        }}
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#f6f8ef]"></div>
 
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-        }}
-
-        className="absolute top-10 left-0 w-[400px] h-[400px] bg-green-200/30 blur-[140px] rounded-full"
-      />
-
-      {/* Floating Orb */}
+      {/* Gradient Blobs */}
       <motion.div
         animate={{
           y: [0, 30, 0],
+          x: [0, 15, 0],
         }}
 
         transition={{
-          duration: 8,
+          duration: 14,
           repeat: Infinity,
+          ease: "easeInOut",
         }}
 
-        className="absolute bottom-10 right-10 w-72 h-72 bg-lime-200/30 blur-[120px] rounded-full"
+        className="absolute -top-24 left-[-120px] w-[420px] h-[420px] rounded-full bg-green-200/30 blur-[120px]"
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <motion.div
+        animate={{
+          y: [0, -25, 0],
+          x: [0, -10, 0],
+        }}
+
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+
+        className="absolute bottom-[-120px] right-[-100px] w-[420px] h-[420px] rounded-full bg-lime-200/25 blur-[120px]"
+      />
+
+      {/* Noise Grid */}
+      <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,rgba(22,101,52,0.9)_1px,transparent_1px),linear-gradient(to_bottom,rgba(22,101,52,0.9)_1px,transparent_1px)] [background-size:50px_50px]"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-
-          transition={{
-            duration: 1,
+          initial={{
+            opacity: 0,
+            y: 40,
           }}
 
-          viewport={{ once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
 
-          className="text-center mb-20"
+          transition={{
+            duration: 0.7,
+          }}
+
+          viewport={{
+            once: true,
+          }}
+
+          className="text-center mb-14"
         >
 
-          <p className="uppercase tracking-[5px] text-green-600 font-semibold">
-            FAQ
-          </p>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/50 bg-white/70 backdrop-blur-xl shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
 
-          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mt-5">
-            Frequently Asked Questions
+            <span className="w-2 h-2 rounded-full bg-green-600"></span>
+
+            <p className="uppercase tracking-[4px] text-green-700 text-sm font-semibold">
+              FAQ
+            </p>
+
+          </div>
+
+          <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mt-7 leading-tight">
+
+            Everything You
+            <span className="text-green-700">
+              {" "}Need To Know
+            </span>
+
           </h2>
 
-          <p className="max-w-3xl mx-auto mt-6 text-gray-600 text-lg">
-            Everything you need to know about our organic foods,
-            delivery process, and healthy lifestyle.
+          <p className="max-w-3xl mx-auto mt-6 text-gray-600 text-lg leading-relaxed">
+
+            Answers about our fresh organic foods, delivery process, healthy products, and customer support.
+
           </p>
 
         </motion.div>
 
-        {/* FAQ Items */}
-        <div className="space-y-8">
+        {/* FAQ Wrapper */}
+        <div className="relative rounded-[40px] border border-white/50 bg-white/40 backdrop-blur-3xl shadow-[0_20px_80px_rgba(0,0,0,0.05)] overflow-hidden">
 
-          {faqData.map((item, index) => {
+          {/* Inner Glow */}
+          <div className="absolute top-0 left-0 w-80 h-80 bg-green-200/20 blur-[100px] rounded-full"></div>
 
-            const isOpen = active === item.id;
+          <div className="relative z-10 divide-y divide-white/40">
 
-            return (
+            {faqData.map(
+              (item, index) => {
 
-              <motion.div
-                key={item.id}
+                const isOpen =
+                  active === item.id;
 
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                return (
 
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                }}
-
-                viewport={{ once: true }}
-
-                className="group bg-[#F8FFF4]/70 backdrop-blur-xl border border-white/40 rounded-[30px] overflow-hidden shadow-xl hover:shadow-2xl transition duration-500"
-              >
-
-                {/* Question */}
-                <button
-                  onClick={() => toggleFAQ(item.id)}
-                  className="w-full flex justify-between items-center text-left p-8"
-                >
-
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 pr-6">
-                    {item.question}
-                  </h3>
-
-                  {/* Icon */}
                   <motion.div
-                    animate={{
-                      rotate: isOpen ? 180 : 0,
+                    key={item.id}
+
+                    initial={{
+                      opacity: 0,
+                      y: 30,
+                    }}
+
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
                     }}
 
                     transition={{
-                      duration: 0.3,
+                      duration: 0.5,
+                      delay:
+                        index * 0.08,
                     }}
 
-                    className="min-w-[50px] min-h-[50px] rounded-full bg-green-100 flex items-center justify-center text-green-700 text-lg"
+                    viewport={{
+                      once: true,
+                    }}
+
+                    className="group"
                   >
 
-                    {isOpen ? <FaMinus /> : <FaPlus />}
+                    {/* Question */}
+                    <button
+                      onClick={() =>
+                        toggleFAQ(
+                          item.id
+                        )
+                      }
 
-                  </motion.div>
-
-                </button>
-
-                {/* Answer */}
-                <AnimatePresence>
-
-                  {isOpen && (
-
-                    <motion.div
-                      initial={{
-                        height: 0,
-                        opacity: 0,
-                      }}
-
-                      animate={{
-                        height: "auto",
-                        opacity: 1,
-                      }}
-
-                      exit={{
-                        height: 0,
-                        opacity: 0,
-                      }}
-
-                      transition={{
-                        duration: 0.4,
-                      }}
-
-                      className="overflow-hidden"
+                      className="w-full flex items-center justify-between gap-6 px-7 md:px-10 py-8 text-left transition duration-500 hover:bg-white/20"
                     >
 
-                      <div className="px-8 pb-8 text-gray-600 text-lg leading-relaxed">
+                      <div className="flex items-start gap-5">
 
-                        {item.answer}
+                        {/* Number */}
+                        <div
+                          className={`min-w-[58px] h-[58px] rounded-2xl flex items-center justify-center text-lg font-bold transition duration-500 ${
+                            isOpen
+                              ? "bg-green-600 text-white shadow-[0_10px_30px_rgba(34,197,94,0.3)]"
+                              : "bg-white text-green-700"
+                          }`}
+                        >
+
+                          0{item.id}
+
+                        </div>
+
+                        {/* Question */}
+                        <div>
+
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug">
+
+                            {
+                              item.question
+                            }
+
+                          </h3>
+
+                        </div>
 
                       </div>
 
-                    </motion.div>
+                      {/* Icon */}
+                      <motion.div
+                        animate={{
+                          rotate:
+                            isOpen
+                              ? 180
+                              : 0,
 
-                  )}
+                          scale:
+                            isOpen
+                              ? 1.05
+                              : 1,
+                        }}
 
-                </AnimatePresence>
+                        transition={{
+                          duration: 0.3,
+                        }}
 
-                {/* Glow Border */}
-                <div className="absolute inset-0 rounded-[30px] opacity-0 group-hover:opacity-100 transition duration-500 border border-green-400/30 shadow-[0_0_40px_rgba(34,197,94,0.25)] pointer-events-none"></div>
+                        className={`min-w-[54px] h-[54px] rounded-2xl flex items-center justify-center text-lg transition duration-500 ${
+                          isOpen
+                            ? "bg-green-600 text-white"
+                            : "bg-white text-green-700"
+                        }`}
+                      >
 
-              </motion.div>
+                        {isOpen
+                          ? <FaMinus />
+                          : <FaPlus />}
 
-            );
-          })}
+                      </motion.div>
+
+                    </button>
+
+                    {/* Answer */}
+                    <AnimatePresence>
+
+                      {isOpen && (
+
+                        <motion.div
+                          initial={{
+                            height: 0,
+                            opacity: 0,
+                          }}
+
+                          animate={{
+                            height:
+                              "auto",
+                            opacity: 1,
+                          }}
+
+                          exit={{
+                            height: 0,
+                            opacity: 0,
+                          }}
+
+                          transition={{
+                            duration: 0.35,
+                          }}
+
+                          className="overflow-hidden"
+                        >
+
+                          <div className="pl-[95px] pr-8 md:pr-16 pb-8 text-gray-600 text-lg leading-relaxed">
+
+                            {
+                              item.answer
+                            }
+
+                          </div>
+
+                        </motion.div>
+
+                      )}
+
+                    </AnimatePresence>
+
+                  </motion.div>
+                );
+              }
+            )}
+
+          </div>
+
+          {/* Bottom Gradient */}
+          <div className="h-[4px] bg-gradient-to-r from-green-500 via-lime-400 to-green-300"></div>
 
         </div>
 

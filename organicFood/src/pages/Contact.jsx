@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -41,20 +42,28 @@ const Contact = () => {
     <>
       <Navbar />
 
-      <section className="relative min-h-screen bg-[#F8FFF4] overflow-hidden pt-32 pb-24 px-6 md:px-16">
+      <section className="relative overflow-hidden bg-[#f5f8ef] pt-28 pb-14">
 
-        {/* Glow Effects */}
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-green-300/20 blur-[120px] rounded-full"></div>
+        {/* Background */}
+        <div className="absolute inset-0">
 
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lime-200/20 blur-[120px] rounded-full"></div>
+          {/* Glow */}
+          <div className="absolute top-0 left-[-100px] w-[420px] h-[420px] bg-green-200/30 blur-[130px] rounded-full"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="absolute bottom-0 right-[-100px] w-[420px] h-[420px] bg-lime-200/30 blur-[130px] rounded-full"></div>
 
-          {/* Heading */}
+          {/* Grid */}
+          <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,rgba(22,101,52,0.9)_1px,transparent_1px),linear-gradient(to_bottom,rgba(22,101,52,0.9)_1px,transparent_1px)] [background-size:48px_48px]"></div>
+
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+
+          {/* Hero */}
           <motion.div
             initial={{
               opacity: 0,
-              y: 40,
+              y: 30,
             }}
 
             animate={{
@@ -66,257 +75,243 @@ const Contact = () => {
               duration: 0.7,
             }}
 
-            className="text-center max-w-4xl mx-auto mb-20"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
 
-            <p className="uppercase tracking-[4px] text-green-600 font-semibold mb-6">
-              Contact Us
-            </p>
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
+              <span className="w-2 h-2 rounded-full bg-green-600"></span>
+
+              <p className="uppercase tracking-[4px] text-green-700 text-sm font-semibold">
+                Contact Us
+              </p>
+
+            </div>
+
+            <h1 className="text-4xl md:text-7xl font-extrabold text-gray-900 mt-7 leading-tight">
 
               Let’s Talk About
               <span className="text-green-600">
-                {" "}Fresh Organic Food
+                {" "}Organic Living
               </span>
 
             </h1>
 
-            <p className="text-lg text-gray-600 leading-relaxed mt-8">
+            <p className="text-lg text-gray-600 leading-relaxed mt-7 max-w-3xl mx-auto">
 
-              Have questions about our products, delivery, or organic farming?
-              Our team is here to help you anytime.
+              Have questions about products, delivery, or organic farming?
+              Our team is always ready to help you.
 
             </p>
 
           </motion.div>
 
-          {/* Main Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-12 items-start">
+          {/* Main Connected Container */}
+          <div className="rounded-[42px] border border-white/40 bg-white/50 backdrop-blur-3xl shadow-[0_20px_80px_rgba(0,0,0,0.06)] overflow-hidden">
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px]">
 
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              {/* LEFT SIDE */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
 
-              transition={{
-                duration: 0.7,
-              }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
 
-              viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                }}
 
-              className="bg-white/80 backdrop-blur-2xl rounded-[40px] border border-white/40 p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
-            >
+                viewport={{
+                  once: true,
+                }}
 
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-10">
-                Send A Message
-              </h2>
+                className="p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/40"
+              >
 
-              <form className="space-y-7">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">
 
-                {/* Name */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  Send A Message
 
-                  <div>
+                </h2>
 
-                    <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      First Name
-                    </label>
+                <form className="space-y-6">
+
+                  {/* Name */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
                     <input
                       type="text"
-                      placeholder="Enter first name"
+                      placeholder="First Name"
 
-                      className="w-full h-14 px-5 rounded-2xl border border-gray-200 outline-none focus:border-green-500 transition duration-300"
+                      className="h-14 px-5 rounded-2xl border border-gray-200 bg-white/80 outline-none focus:border-green-500 transition duration-300"
+                    />
+
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+
+                      className="h-14 px-5 rounded-2xl border border-gray-200 bg-white/80 outline-none focus:border-green-500 transition duration-300"
                     />
 
                   </div>
 
-                  <div>
-
-                    <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      Last Name
-                    </label>
-
-                    <input
-                      type="text"
-                      placeholder="Enter last name"
-
-                      className="w-full h-14 px-5 rounded-2xl border border-gray-200 outline-none focus:border-green-500 transition duration-300"
-                    />
-
-                  </div>
-
-                </div>
-
-                {/* Email */}
-                <div>
-
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Email Address
-                  </label>
-
+                  {/* Email */}
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Email Address"
 
-                    className="w-full h-14 px-5 rounded-2xl border border-gray-200 outline-none focus:border-green-500 transition duration-300"
+                    className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-white/80 outline-none focus:border-green-500 transition duration-300"
                   />
 
-                </div>
-
-                {/* Subject */}
-                <div>
-
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Subject
-                  </label>
-
+                  {/* Subject */}
                   <input
                     type="text"
-                    placeholder="Enter subject"
+                    placeholder="Subject"
 
-                    className="w-full h-14 px-5 rounded-2xl border border-gray-200 outline-none focus:border-green-500 transition duration-300"
+                    className="w-full h-14 px-5 rounded-2xl border border-gray-200 bg-white/80 outline-none focus:border-green-500 transition duration-300"
                   />
 
-                </div>
-
-                {/* Message */}
-                <div>
-
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Message
-                  </label>
-
+                  {/* Message */}
                   <textarea
                     rows="6"
                     placeholder="Write your message..."
 
-                    className="w-full px-5 py-4 rounded-3xl border border-gray-200 outline-none focus:border-green-500 transition duration-300 resize-none"
+                    className="w-full px-5 py-4 rounded-[28px] border border-gray-200 bg-white/80 outline-none focus:border-green-500 transition duration-300 resize-none"
                   ></textarea>
 
-                </div>
+                  {/* Button */}
+                  <motion.button
+                    whileHover={{
+                      scale: 1.02,
+                    }}
 
-                {/* Button */}
-                <motion.button
-                  whileHover={{
-                    scale: 1.02,
-                  }}
+                    whileTap={{
+                      scale: 0.98,
+                    }}
 
-                  whileTap={{
-                    scale: 0.98,
-                  }}
+                    className="w-full md:w-auto px-10 h-14 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-semibold text-lg shadow-[0_12px_35px_rgba(34,197,94,0.25)] transition duration-300"
+                  >
 
-                  className="w-full md:w-auto px-10 h-14 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold text-lg shadow-[0_8px_25px_rgba(34,197,94,0.2)] transition duration-300"
-                >
+                    Send Message
 
-                  Send Message
+                  </motion.button>
 
-                </motion.button>
-
-              </form>
-
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              transition={{
-                duration: 0.7,
-                delay: 0.1,
-              }}
-
-              viewport={{ once: true }}
-
-              className="space-y-6"
-            >
-
-              {contactInfo.map((item, index) => (
-
-                <motion.div
-                  key={index}
-
-                  whileHover={{
-                    scale: 1.02,
-                  }}
-
-                  className="bg-white/80 backdrop-blur-2xl rounded-[32px] border border-white/40 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
-                >
-
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-full bg-green-100 text-green-700 text-2xl flex items-center justify-center">
-
-                    {item.icon}
-
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-gray-900 mt-7">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed mt-4 text-lg">
-                    {item.value}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-              {/* Map Card */}
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                }}
-
-                className="relative overflow-hidden rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
-              >
-
-                <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop"
-                  alt="Location"
-
-                  className="w-full h-[300px] object-cover"
-                />
-
-                <div className="absolute inset-0 bg-black/20"></div>
-
-                <div className="absolute bottom-6 left-6 text-white">
-
-                  <p className="uppercase tracking-[3px] text-green-300 font-semibold">
-                    Our Store
-                  </p>
-
-                  <h3 className="text-3xl font-extrabold mt-2">
-                    Organic Market
-                  </h3>
-
-                </div>
+                </form>
 
               </motion.div>
 
-            </motion.div>
+              {/* RIGHT SIDE */}
+              <div className="relative p-6 md:p-8 bg-white/30">
+
+                {/* Glow */}
+                <div className="absolute top-10 right-0 w-40 h-40 bg-green-200/30 blur-[80px] rounded-full"></div>
+
+                <div className="relative z-10">
+
+                  <h3 className="text-3xl font-extrabold text-gray-900 mb-8">
+
+                    Contact Info
+
+                  </h3>
+
+                  <div className="space-y-5">
+
+                    {contactInfo.map((item, index) => (
+
+                      <motion.div
+                        key={index}
+
+                        whileHover={{
+                          y: -4,
+                        }}
+
+                        className="flex items-start gap-5 p-5 rounded-[28px] bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+                      >
+
+                        {/* Icon */}
+                        <div className="min-w-[60px] h-[60px] rounded-2xl bg-green-100 text-green-700 flex items-center justify-center text-xl">
+
+                          {item.icon}
+
+                        </div>
+
+                        {/* Content */}
+                        <div>
+
+                          <h4 className="text-xl font-bold text-gray-900">
+
+                            {item.title}
+
+                          </h4>
+
+                          <p className="text-gray-600 mt-2 leading-relaxed">
+
+                            {item.value}
+
+                          </p>
+
+                        </div>
+
+                      </motion.div>
+
+                    ))}
+
+                  </div>
+
+                  {/* Map */}
+                  <motion.div
+                    whileHover={{
+                      scale: 1.01,
+                    }}
+
+                    className="relative overflow-hidden rounded-[32px] mt-6"
+                  >
+
+                    <img
+                      src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop"
+                      alt="Location"
+
+                      className="w-full h-[240px] object-cover"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                    <div className="absolute bottom-6 left-6 text-white">
+
+                      <p className="uppercase tracking-[3px] text-green-300 text-sm font-semibold">
+
+                        Our Store
+
+                      </p>
+
+                      <h3 className="text-3xl font-extrabold mt-2">
+
+                        Organic Market
+
+                      </h3>
+
+                    </div>
+
+                  </motion.div>
+
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
       </section>
+
       <Footer />
     </>
   );

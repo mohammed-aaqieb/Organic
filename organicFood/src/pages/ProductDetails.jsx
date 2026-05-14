@@ -208,11 +208,13 @@ const ProductDetails = () => {
             <ProductReviews />
           </div>
           <div className="mt-20">
-            <RelatedProducts
-              currentId={product.id}
-              category={product.category}
-            />
-          </div>
+
+  <RelatedProducts
+    currentId={product.id}
+    category={product.category}
+  />
+
+</div>
         </div>
       </section>
     </>

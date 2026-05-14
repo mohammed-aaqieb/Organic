@@ -1,19 +1,31 @@
 import { motion } from "framer-motion";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import {
+  Swiper,
+  SwiperSlide,
+} from "swiper/react";
+
+import {
+  
+  Autoplay,
+} from "swiper/modules";
 
 import "swiper/css";
+// import "swiper/css/effect-coverflow";  
 
-import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import {
+  FaStar,
+} from "react-icons/fa";
 
 const testimonials = [
   {
     id: 1,
     name: "Aarav Sharma",
     role: "Fitness Trainer",
+
     image:
       "https://randomuser.me/api/portraits/men/32.jpg",
+
     review:
       "The vegetables and fruits are incredibly fresh. The quality feels premium and healthy.",
   },
@@ -22,8 +34,10 @@ const testimonials = [
     id: 2,
     name: "Priya Verma",
     role: "Nutrition Expert",
+
     image:
       "https://randomuser.me/api/portraits/women/44.jpg",
+
     review:
       "I love the freshness and organic quality. Delivery was smooth and amazing.",
   },
@@ -32,8 +46,10 @@ const testimonials = [
     id: 3,
     name: "Rahul Mehta",
     role: "Chef",
+
     image:
       "https://randomuser.me/api/portraits/men/75.jpg",
+
     review:
       "Best organic store experience I have seen. Beautiful design and excellent food quality.",
   },
@@ -42,180 +58,231 @@ const testimonials = [
     id: 4,
     name: "Sneha Kapoor",
     role: "Yoga Coach",
+
     image:
       "https://randomuser.me/api/portraits/women/68.jpg",
+
     review:
       "Healthy lifestyle starts with healthy food. This organic collection feels truly natural.",
   },
 ];
 
 const Testimonials = () => {
+
   return (
-    <section className="relative py-32 bg-[#F8FFF4] overflow-hidden">
+    <section className="relative overflow-hidden py-16 md:py-20">
 
-      {/* Background Glow */}
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#f5f8ef]"></div>
+
+      {/* Big Gradient Orbs */}
       <motion.div
         animate={{
-          y: [0, -40, 0],
-          x: [0, 30, 0],
+          y: [0, 25, 0],
+          x: [0, 10, 0],
         }}
 
         transition={{
-          duration: 10,
+          duration: 12,
           repeat: Infinity,
+          ease: "easeInOut",
         }}
 
-        className="absolute top-10 left-0 w-[400px] h-[400px] bg-green-300/20 blur-[140px] rounded-full"
+        className="absolute top-[-100px] left-[-100px] w-[420px] h-[420px] rounded-full bg-green-200/30 blur-[120px]"
       />
 
-      {/* Floating Orb */}
       <motion.div
         animate={{
-          y: [0, 30, 0],
+          y: [0, -20, 0],
+          x: [0, -10, 0],
         }}
 
         transition={{
-          duration: 8,
+          duration: 14,
           repeat: Infinity,
+          ease: "easeInOut",
         }}
 
-        className="absolute bottom-10 right-10 w-72 h-72 bg-lime-200/30 blur-[120px] rounded-full"
+        className="absolute bottom-[-120px] right-[-120px] w-[420px] h-[420px] rounded-full bg-lime-200/30 blur-[120px]"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16">
+      
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-
-          transition={{
-            duration: 1,
+          initial={{
+            opacity: 0,
+            y: 40,
           }}
 
-          viewport={{ once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
 
-          className="text-center mb-20"
+          transition={{
+            duration: 0.7,
+          }}
+
+          viewport={{
+            once: true,
+          }}
+
+          className="text-center mb-14"
         >
 
-          <p className="uppercase tracking-[5px] text-green-600 font-semibold">
-            Testimonials
-          </p>
+          <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-xl border border-white/50 px-6 py-3 rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
 
-          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mt-5">
-            What Our Customers Say
+            <span className="w-2 h-2 rounded-full bg-green-600"></span>
+
+            <p className="uppercase tracking-[4px] text-green-700 text-sm font-semibold">
+              Testimonials
+            </p>
+
+          </div>
+
+          <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mt-7 leading-tight">
+
+            Loved By
+            <span className="text-green-700">
+              {" "}Healthy People
+            </span>
+
           </h2>
 
-          <p className="max-w-3xl mx-auto mt-6 text-gray-600 text-lg">
-            Thousands of customers trust our organic foods
-            for freshness, quality, and healthy living.
+          <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-lg leading-relaxed">
+
+            Real customers sharing their experience with our premium organic foods and healthy lifestyle products.
+
           </p>
 
         </motion.div>
 
-        {/* Slider */}
+        {/* Coverflow Slider */}
         <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
+  slidesPerView={1.15}
 
-          loop={true}
+  spaceBetween={24}
 
-          speed={5000}
+  loop={true}
 
-          allowTouchMove={false}
+  freeMode={true}
 
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
+  speed={6000}
 
-          breakpoints={{
-            768: {
-              slidesPerView: 2,
-            },
+  allowTouchMove={false}
 
-            1200: {
-              slidesPerView: 3,
-            },
-          }}
+  autoplay={{
+    delay: 0,
+    disableOnInteraction: false,
+  }}
 
-          modules={[Autoplay]}
-          className="testimonialSlider"
-        >
+  breakpoints={{
+    768: {
+      slidesPerView: 2,
+    },
 
-          {testimonials.map((item, index) => (
+    1200: {
+      slidesPerView: 3,
+    },
+  }}
 
-            <SwiperSlide key={item.id}>
+  modules={[
+    Autoplay,
+  ]}
+
+  className="pb-12"
+>
+
+          {testimonials.map((item) => (
+
+            <SwiperSlide
+              key={item.id}
+
+              className="max-w-[420px]"
+            >
 
               <motion.div
-                animate={{
-                  y: [0, -10, 0],
+                whileHover={{
+                  y: -8,
                 }}
 
                 transition={{
-                  duration: 4 + index,
-                  repeat: Infinity,
+                  duration: 0.35,
                 }}
 
-                whileHover={{
-                  y: -15,
-                  scale: 1.03,
-                }}
-
-                className="group relative bg-white/60 backdrop-blur-xl border border-white/40 rounded-[35px] p-10 overflow-hidden shadow-xl hover:shadow-2xl transition duration-500"
+                className="group relative overflow-hidden rounded-[38px] border border-white/40 bg-white/65 backdrop-blur-2xl shadow-[0_15px_50px_rgba(0,0,0,0.06)]"
               >
 
-                {/* Quote Icon */}
-                <div className="text-5xl text-green-200 mb-8">
-                  <FaQuoteLeft />
-                </div>
+                {/* Gradient Glow */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-green-200/25 blur-[80px] rounded-full"></div>
 
-                {/* Review */}
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  {item.review}
-                </p>
+                {/* Top Area */}
+                <div className="relative p-8 pb-6">
 
-                {/* Stars */}
-                <div className="flex gap-2 text-yellow-400 mt-8">
+                  {/* Profile */}
+                  <div className="flex items-center gap-5">
 
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
+                    <div className="relative">
 
-                </div>
+                      <img
+                        src={item.image}
+                        alt={item.name}
 
-                {/* User */}
-                <div className="flex items-center gap-4 mt-10">
+                        className="w-20 h-20 rounded-full object-cover border-[5px] border-white shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+                      />
 
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-16 h-16 rounded-full object-cover border-4 border-green-100"
-                  />
+                      <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 border-4 border-white"></div>
 
-                  <div>
+                    </div>
 
-                    <h4 className="text-xl font-bold text-gray-900">
-                      {item.name}
-                    </h4>
+                    <div>
 
-                    <p className="text-gray-500">
-                      {item.role}
-                    </p>
+                      <h3 className="text-2xl font-bold text-gray-900">
+
+                        {item.name}
+
+                      </h3>
+
+                      <p className="text-green-700 font-medium mt-1">
+
+                        {item.role}
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  {/* Review */}
+                  <p className="text-gray-700 text-lg leading-relaxed mt-8">
+
+                    “{item.review}”
+
+                  </p>
+
+                  {/* Stars */}
+                  <div className="flex items-center gap-2 text-yellow-400 mt-8 text-lg">
+
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
 
                   </div>
 
                 </div>
 
-                {/* Glow Border */}
-                <div className="absolute inset-0 rounded-[35px] opacity-0 group-hover:opacity-100 transition duration-500 border border-green-400/40 shadow-[0_0_40px_rgba(34,197,94,0.35)]"></div>
+                {/* Bottom Decoration */}
+                <div className="h-2 bg-gradient-to-r from-green-500 via-lime-400 to-green-300"></div>
 
-                {/* Shine Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                {/* Hover Shine */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
 
-                  <div className="absolute -left-40 top-0 w-40 h-full bg-white/20 rotate-12 blur-2xl group-hover:left-[120%] transition-all duration-[1500ms]"></div>
+                  <div className="absolute -left-40 top-0 h-full w-40 bg-white/20 rotate-12 blur-2xl group-hover:left-[130%] transition-all duration-[1600ms]"></div>
 
                 </div>
 

@@ -17,10 +17,10 @@ const HeroSection = () => {
       </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/55"></div>
+      <div className="absolute inset-0 "></div>
 
       {/* Green Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-950/70 via-black/30 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r  via-black/30 to-transparent"></div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center h-full px-6 md:px-20">

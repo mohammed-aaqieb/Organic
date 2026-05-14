@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CartDrawer from "../cart/CartDrawer";
 
@@ -9,15 +9,27 @@ const Navbar = () => {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, []);
 
   return (
     <>
       <nav
-        className={`${
-          isHome ? "absolute" : "fixed"
-        } top-0 left-0 w-full z-50 transition-all duration-500 ${
-          isHome
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isHome && !scrolled
             ? "bg-transparent"
             : "bg-white/20 backdrop-blur-2xl border-b border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
         }`}
@@ -29,7 +41,7 @@ const Navbar = () => {
           <Link to="/">
             <h1
               className={`text-3xl font-extrabold tracking-wide cursor-pointer transition duration-300 ${
-                isHome
+                isHome && !scrolled
                   ? "text-white"
                   : "text-green-700"
               }`}
@@ -41,7 +53,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <ul
             className={`hidden md:flex items-center gap-10 font-medium transition duration-300 ${
-              isHome
+              isHome && !scrolled
                 ? "text-white"
                 : "text-gray-800"
             }`}
@@ -51,7 +63,7 @@ const Navbar = () => {
               <Link
                 to="/"
                 className={`transition duration-300 ${
-                  isHome
+                  isHome && !scrolled
                     ? "hover:text-green-300"
                     : "hover:text-green-600"
                 }`}
@@ -64,7 +76,7 @@ const Navbar = () => {
               <Link
                 to="/products"
                 className={`transition duration-300 ${
-                  isHome
+                  isHome && !scrolled
                     ? "hover:text-green-300"
                     : "hover:text-green-600"
                 }`}
@@ -77,7 +89,7 @@ const Navbar = () => {
               <Link
                 to="/about"
                 className={`transition duration-300 ${
-                  isHome
+                  isHome && !scrolled
                     ? "hover:text-green-300"
                     : "hover:text-green-600"
                 }`}
@@ -90,7 +102,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 className={`transition duration-300 ${
-                  isHome
+                  isHome && !scrolled
                     ? "hover:text-green-300"
                     : "hover:text-green-600"
                 }`}
@@ -108,7 +120,7 @@ const Navbar = () => {
             <Link
               to="/login"
               className={`hidden md:block transition duration-300 ${
-                isHome
+                isHome && !scrolled
                   ? "text-white hover:text-green-300"
                   : "text-gray-800 hover:text-green-600"
               }`}
