@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/common/Navbar";
 import { useState } from "react";
 
-// import OrderSuccessModal from "../components/checkout/OrderSuccessModal";
+import OrderSuccessModal from "../components/checkout/OrderSuccessModal";
 import { useCart } from "../context/CartContext";
 
 import { FaCreditCard, FaMoneyBillWave, FaTruck } from "react-icons/fa";
