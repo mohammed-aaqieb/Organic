@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import farmVideo from "../../assets/videos/farm.mp4";
+import farmVideo from "../../assets/videos/farm1.mp4";
 
 const HeroSection = () => {
   return (

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import farmVideo from "../../assets/videos/farm.mp4";
+import farmVideo from "../../assets/videos/farm2.mp4";
 import { Link } from "react-router-dom";
 
 const VideoSection = () => {
