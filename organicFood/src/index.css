@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
 body {
+
   font-family: 'Poppins', sans-serif;
+}
+
+.bestSellerSlider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.testimonialSlider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+@keyframes shine {
+  0% {
+    left: -40%;
+  }
+
+  100% {
+    left: 140%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

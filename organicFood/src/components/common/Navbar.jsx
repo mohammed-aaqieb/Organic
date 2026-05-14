@@ -1,77 +1,149 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+
+import CartDrawer from "../cart/CartDrawer";
 
 const Navbar = () => {
+
+  const location = useLocation();
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const isHome = location.pathname === "/";
+
   return (
-    <nav className="absolute top-0 left-0 w-full z-50">
-      <div className="flex items-center justify-between px-6 md:px-16 py-6">
-        {/* Logo */}
-        <h1 className="text-3xl font-extrabold text-white tracking-wide cursor-pointer">
-          Organic
-        </h1>
+    <>
+      <nav
+        className={`${
+          isHome ? "absolute" : "fixed"
+        } top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isHome
+            ? "bg-transparent"
+            : "bg-white/20 backdrop-blur-2xl border-b border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
+        }`}
+      >
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex gap-10 text-white font-medium">
-          <li>
-            <Link
-              to="/"
-              className="hover:text-green-400 transition duration-300 cursor-pointer"
+        <div className="flex items-center justify-between px-6 md:px-16 py-5">
+
+          {/* Logo */}
+          <Link to="/">
+            <h1
+              className={`text-3xl font-extrabold tracking-wide cursor-pointer transition duration-300 ${
+                isHome
+                  ? "text-white"
+                  : "text-green-700"
+              }`}
             >
-              {" "}
-              Home{" "}
-            </Link>
-          </li>
-
-          <li>
-            {" "}
-            <Link
-              to="/products"
-              className="hover:text-green-400 transition duration-300 cursor-pointer"
-            >
-              Products
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/about"
-              className="hover:text-green-400 transition duration-300 cursor-pointer"
-            >
-              About
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/contact"
-              className="hover:text-green-400 transition duration-300 cursor-pointer"
-            >
-              Contact{" "}
-            </Link>
-          </li>
-        </ul>
-
-        {/* Right Side Buttons */}
-        <div className="flex items-center gap-4">
-          {/* Login */}
-          <Link to="/login" className="hidden md:block text-white hover:text-green-400 transition duration-300">
-          Login
+              Organic
+            </h1>
           </Link>
 
-          {/* Signup */}
-          <Link
-            to="/signup"
-            className="bg-white text-green-700 hover:bg-green-100 px-5 py-2 rounded-full font-semibold transition duration-300 shadow-lg"
+          {/* Navigation Links */}
+          <ul
+            className={`hidden md:flex items-center gap-10 font-medium transition duration-300 ${
+              isHome
+                ? "text-white"
+                : "text-gray-800"
+            }`}
           >
-            Sign Up
-          </Link>
 
-          {/* Cart */}
-          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full transition duration-300 shadow-xl hover:scale-105">
-            Cart
-          </button>
+            <li>
+              <Link
+                to="/"
+                className={`transition duration-300 ${
+                  isHome
+                    ? "hover:text-green-300"
+                    : "hover:text-green-600"
+                }`}
+              >
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/products"
+                className={`transition duration-300 ${
+                  isHome
+                    ? "hover:text-green-300"
+                    : "hover:text-green-600"
+                }`}
+              >
+                Products
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/about"
+                className={`transition duration-300 ${
+                  isHome
+                    ? "hover:text-green-300"
+                    : "hover:text-green-600"
+                }`}
+              >
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/contact"
+                className={`transition duration-300 ${
+                  isHome
+                    ? "hover:text-green-300"
+                    : "hover:text-green-600"
+                }`}
+              >
+                Contact
+              </Link>
+            </li>
+
+          </ul>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-4">
+
+            {/* Login */}
+            <Link
+              to="/login"
+              className={`hidden md:block transition duration-300 ${
+                isHome
+                  ? "text-white hover:text-green-300"
+                  : "text-gray-800 hover:text-green-600"
+              }`}
+            >
+              Login
+            </Link>
+
+            {/* Signup */}
+            <Link
+              to="/signup"
+              className="bg-white/90 hover:bg-white text-green-700 px-5 py-2.5 rounded-full font-semibold transition duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            >
+              Sign Up
+            </Link>
+
+            {/* Cart */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full transition duration-300 shadow-[0_4px_20px_rgba(34,197,94,0.18)] hover:scale-105"
+            >
+              Cart
+            </button>
+
+          </div>
+
         </div>
-      </div>
-    </nav>
+
+      </nav>
+
+      {/* Cart Drawer */}
+      <CartDrawer
+        isOpen={isCartOpen}
+        setIsOpen={setIsCartOpen}
+      />
+    </>
   );
 };
 
