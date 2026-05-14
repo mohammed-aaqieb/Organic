@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import fruitsImg from "../../assets/fruits/apple.jpg";
-import vegImg from "../../assets/vegetables/tomato.jpg";
+import fruitsImg from "../../assets/fruits/Apple.jpg";
+import vegImg from "../../assets/vegetables/Tomato.jpg";
 
 const FeaturedCategories = () => {
   const categories = [
